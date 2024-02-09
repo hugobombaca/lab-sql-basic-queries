@@ -1,4 +1,5 @@
 SHOW TABLES;
+SELECT * FROM film;
 
 SELECT *
 FROM sakila.actor;
@@ -9,8 +10,9 @@ FROM actor,film,customer,language,staff,film;
 SELECT title
 FROM sakila.film;
 
-SELECT name AS language
-FROM sakila.language;
+SELECT language.name AS language
+FROM language
+JOIN film ON language.language_id = film.language_id;
 
 SELECT first_name
 FROM sakila.staff;
@@ -38,30 +40,6 @@ LIMIT 10;
 SELECT first_name , last_name
 FROM sakila.actor
 WHERE first_name = "SCARLETT";
-
-
-
-
-
-
-
-
-
-/*SELECT COUNT(*) as num
-FROM sakila.film
-WHERE rental_duration >= 4 AND rental_rate <= 3;
-
-SELECT *
-FROM sakila.film
-WHERE rental_duration >= 4 AND rental_rate <= 3 AND rating = "G"
-ORDER BY rental_rate ASC, title ASC
-LIMIT 3;
-
-
-SELECT rating, AVG(rental_rate) AS cost
-FROM sakila.film
-WHERE rental_duration >= 4 AND rental_rate <= 3
-GROUP BY rating; */
 
 
 
